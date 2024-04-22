@@ -121,7 +121,7 @@ createTask(name: String!): Task
     @field(resolver: "TaskMutator@create")
 
 # Note: You need to login first for you to try all queries.
-# Save the response token when login succesful and use it to other queries or authorization
+# Save the response token when login is succesful and use it to other queries or authorization as headers
 {
   Authorization: "Bearer <token>"
 }
