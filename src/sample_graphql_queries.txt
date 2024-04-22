@@ -1,3 +1,4 @@
+# Create user
 mutation {
   createUser(
     name:"John Doe"
@@ -10,6 +11,7 @@ mutation {
   }
 }
 
+# get first 10 tasks
 {
   tasks(first:10) {
     paginatorInfo {
@@ -27,6 +29,7 @@ mutation {
   }
 }
 
+# Get specific user by id
 {
   user(id:12) {
     name
@@ -39,6 +42,7 @@ mutation {
   }
 }
 
+# Get first 10 users
 {
   users(first:10) {
     paginatorInfo {
@@ -53,6 +57,7 @@ mutation {
   }
 }
 
+# Get logged in user with tasks
 {
   me {
     email
@@ -64,10 +69,12 @@ mutation {
   }
 }
 
+# Login user
 mutation {
   login(email:"graphql@test.com", password:"secret")
 }
 
+# Create task
 mutation {
   createTask(
     name:"Learn NuxtJS") {
@@ -79,6 +86,7 @@ mutation {
   }
 }
 
+# Update Task
 mutation {
   updateTask(
     id: "57",
@@ -95,22 +103,7 @@ mutation {
   }
 }
 
-mutation {
-  updateTask(
-    id: "57",
-    name: "Learn Vue JS",
-    status: "{\"todo\":false,\"done\":true}"
-    ) {
-    id
-    name
-    status
-    user {
-      id
-      email
-    }
-  }
-}
-
+# Delete task by id
 mutation {
   deleteTask(id: "57") {
     id
@@ -123,5 +116,12 @@ mutation {
   }
 }
 
+#Create Task
 createTask(name: String!): Task 
     @field(resolver: "TaskMutator@create")
+
+# Note: You need to login first for you to try all queries.
+# Save the response token when login succesful and use it to other queries or authorization
+{
+  Authorization: "Bearer <token>"
+}
