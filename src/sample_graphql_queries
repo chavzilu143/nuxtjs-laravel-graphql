@@ -1,0 +1,127 @@
+mutation {
+  createUser(
+    name:"John Doe"
+    email:"john.doe@example.com"
+    password: "secret"
+  ) {
+    id
+    name
+    email
+  }
+}
+
+{
+  tasks(first:10) {
+    paginatorInfo {
+      total
+      hasMorePages
+    }
+    data {
+      id
+      name
+      user {
+        name
+        email
+      }
+    }
+  }
+}
+
+{
+  user(id:12) {
+    name
+    email
+    tasks {
+      id
+      name
+      status
+    }
+  }
+}
+
+{
+  users(first:10) {
+    paginatorInfo {
+      total
+      hasMorePages
+    }
+    data {
+      id
+      name
+      email
+    }
+  }
+}
+
+{
+  me {
+    email
+    tasks {
+      id
+      name
+      status
+    }
+  }
+}
+
+mutation {
+  login(email:"graphql@test.com", password:"secret")
+}
+
+mutation {
+  createTask(
+    name:"Learn NuxtJS") {
+    id
+    user {
+      id
+      email
+    }
+  }
+}
+
+mutation {
+  updateTask(
+    id: "57",
+    name: "Learn Vue JS",
+    status: "{\"todo\":false,\"done\":true}"
+    ) {
+    id
+    name
+    status
+    user {
+      id
+      email
+    }
+  }
+}
+
+mutation {
+  updateTask(
+    id: "57",
+    name: "Learn Vue JS",
+    status: "{\"todo\":false,\"done\":true}"
+    ) {
+    id
+    name
+    status
+    user {
+      id
+      email
+    }
+  }
+}
+
+mutation {
+  deleteTask(id: "57") {
+    id
+    name
+    status
+    user {
+      id
+      email
+    }
+  }
+}
+
+createTask(name: String!): Task 
+    @field(resolver: "TaskMutator@create")

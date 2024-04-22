@@ -1,0 +1,66 @@
+scalar JSON
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  tasks: [Task!]! @hasMany
+}
+
+type Task {
+  id: Int!
+  name: String!
+  status: JSON!
+  user: User! @belongsTo(relation: "user")
+}
+
+type Query {
+  user(id: Int! @eq): User
+    @find
+    @guard(abilities: ["auth:api"])
+
+  users: [User!]!
+    @paginate
+    @guard(abilities: ["auth:api"])
+
+  task(id: Int! @eq): Task
+    @find
+    @guard(abilities: ["auth:api"])
+
+  tasks: [Task!]!
+    @paginate
+    @guard(abilities: ["auth:api"])
+
+  me: User 
+    @auth(guard: "api")
+}
+
+type Mutation {
+  createUser(
+    name: String!
+    email: String! 
+      @rules(apply: ["email", "unique:users"])
+    password: String! 
+    @hash @rules(apply: ["min:6"])
+  ): User @create
+
+  login(
+    email: String! 
+    password: String!
+  ): String @field(resolver: "AuthMutator@resolve")
+
+  createTask(name: String!): Task 
+    @field(resolver: "TaskMutator@create")
+
+  updateTask(
+    id: Int!,
+    name: String!
+    status: JSON!
+    ): Task
+    @field(resolver: "TaskMutator@update")
+
+  deleteTask(id: Int!): Task
+    @field(resolver: "TaskMutator@delete")
+
+  logout: Boolean @field(resolver: "AuthMutator@logout")
+}
