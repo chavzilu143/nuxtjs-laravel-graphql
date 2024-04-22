@@ -1,42 +1,42 @@
 # Backend setup
 change directory to backend <br>
-cd src/backend/
+<code>cd src/backend/ </code>
 
-## install latest php
-sudo apt update
-sudo apt install php php-cli php-common php-mysql php-xml php-mbstring php-json php-sqlite3 php-gd
+**Install latest php** <br />
+<code>sudo apt update</code><br />
+<code>sudo apt install php php-cli php-common php-mysql php-xml php-mbstring php-json php-sqlite3 php-gd </code><br />
 
-## install and start
-sudo apt install zip unzip
-sudo curl -sS https://getcomposer.org/installer -o composer-setup.php
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-rm -rf composer-setup.php
+**Install and start** <br />
+<code>sudo apt install zip unzip</code><br />
+<code>sudo curl -sS https://getcomposer.org/installer -o composer-setup.php</code><br />
+<code>sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer</code><br />
+<code>rm -rf composer-setup.php</code><br />
 
-composer insatall
-php artisan vendor:publish --provider="Nuwave\Lighthouse\LighthouseServiceProvider" --tag=config
+**Composer insatall**<br />
+<code>php artisan vendor:publish --provider="Nuwave\Lighthouse\LighthouseServiceProvider" --tag=config</code><br />
 
-touch ./database/database.sqlite
-php artisan migrate
-php artisan db:seed
-php artisan cache:clear
-php artisan config:cache
-composer dump-autoload
-php artisan serve
+<code>touch ./database/database.sqlite</code><br />
+<code>php artisan migrate</code><br />
+<code>php artisan db:seed</code><br />
+<code>php artisan cache:clear</code><br />
+<code>php artisan config:cache</code><br />
+<code>composer dump-autoload</code><br />
+<code>php artisan serve</code><br />
 
 # Frontend setup
-change directory to frontend <br>
-cd src/frontend/
+change directory to frontend <br />
+<code>cd src/frontend/</code><br />
 
 ## install and start
-nvm use v18.12.1
-npm install
-npm run dev
+<code>nvm use v18.12.1</code><br />
+<code>npm install</code><br />
+<code>npm run dev</code><br />
 
 # Check the web app
-Go to http://127.0.0.1/3000
-Login using this details:
-Email: graphql@test.com
-Password: secret
+Go to http://127.0.0.1/3000<br />
+Login using this details:<br />
+Email: graphql@test.com<br />
+Password: secret<br />
 
-# TODO
-Will add docker setup for easy local installation
+# TODO<br />
+Will add docker setup for easy local installation<br />
