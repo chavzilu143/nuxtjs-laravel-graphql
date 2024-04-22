@@ -38,7 +38,8 @@ Login using this details:<br />
 Email: graphql@test.com<br />
 Password: secret<br />
 
-You can also try graphql server: http://127.0.0.1/8000/graphql. Just use any graphql client like graphql-playground.
+You can also try graphql server: http://127.0.0.1/8000/graphql. Just use any graphql client like graphql-playground.<br/>
+Check sample queries here src/sample_graphql_queries.
 
 # TODO<br />
 Will add docker setup for easy local installation<br />
