@@ -37,3 +37,6 @@ Go to http://127.0.0.1/3000
 Login using this details blow.
 Email: graphql@test.com
 Password: secret
+
+# TODO
+Will add docker setup for easy local installation
