@@ -34,7 +34,7 @@ npm run dev
 
 # Check the web app
 Go to http://127.0.0.1/3000
-Login using this details blow.
+Login using this details:
 Email: graphql@test.com
 Password: secret
 
