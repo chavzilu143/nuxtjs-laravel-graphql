@@ -1,6 +1,6 @@
 # Backend setup
-change directory to backend
-cd backend/
+change directory to backend <br>
+cd src/backend/
 
 ## install latest php
 sudo apt update
@@ -24,8 +24,8 @@ composer dump-autoload
 php artisan serve
 
 # Frontend setup
-change directory to frontend
-cd frontend/
+change directory to frontend <br>
+cd src/frontend/
 
 ## install and start
 nvm use v18.12.1
